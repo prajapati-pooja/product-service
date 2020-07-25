@@ -1,18 +1,18 @@
 package internal
 
 import (
-"encoding/json"
-"github.com/gorilla/mux"
-"log"
-"net/http"
+	"encoding/json"
+	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 func NewProductsRoute(router *mux.Router) {
-	router.Use(setContentTypeHeaderssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss)
+	router.Use(setContentTypeHeadersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss)
 	router.HandleFunc("/products", productsHandler)
 }
 
-func setContentTypeHeaderssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss(next http.Handler) http.Handler {
+func setContentTypeHeadersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(responseWriter http.ResponseWriter, request *http.Request) {
 		responseWriter.Header().Add("Content-Type", "application/json; charset=utf-8")
 		next.ServeHTTP(responseWriter, request)
