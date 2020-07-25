@@ -24,8 +24,8 @@ func productsHandler(responseWriter http.ResponseWriter, request *http.Request) 
 	productType := request.URL.Query().Get("type")
 	products := service.GetAll(productType)
 
-	err := json.NewEncoder(responseWriter).Encode(products)
-	if err != nil {
-		log.Printf("failed to write response %s", err.Error())
-	}
+	json.NewEncoder(responseWriter).Encode(products)
+	//if err != nil {
+	//	log.Printf("failed to write response %s", err.Error())
+	//}
 }
